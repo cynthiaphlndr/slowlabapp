@@ -35,7 +35,7 @@ class _HomePageState extends State<HomePage> {
                           builder: (context) =>
                               const BookingPage(title: 'Booking Page')));
                 },
-                child: Text('Booking'),
+                child: const Text('Booking'),
               )
             ],
           ),

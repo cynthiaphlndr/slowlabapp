@@ -59,7 +59,7 @@ class _BookingPageState extends State<BookingPage> {
                       MaterialStateProperty.all<Color>(Colors.blue),
                 ),
                 onPressed: () {},
-                child: Text('Reservasi'),
+                child: const Text('Reservasi'),
               ),
               TextButton(
                 style: ButtonStyle(
@@ -73,7 +73,7 @@ class _BookingPageState extends State<BookingPage> {
                           builder: (context) =>
                               const AdminBookingPage(title: 'Admin Page')));
                 },
-                child: Text('Admin'),
+                child: const Text('Admin'),
               )
             ],
           ),
@@ -108,19 +108,8 @@ class _AdminBookingPageState extends State<AdminBookingPage> {
       Map<String, dynamic> extractedData = jsonDecode(response.body);
       extractedData.forEach((key, val) {});
       _bookingRow = Row(
-        children: [
-          for (var i in extractedData.values)
-            Card(
-              child: InkWell(
-                splashColor: Colors.blue.withAlpha(30),
-                onTap: () {},
-                child: const SizedBox(
-                  width: 300,
-                  height: 100,
-                  child: Text('A card that can be tapped'),
-                ),
-              ),
-            ),
+        children: const [
+          Text('Booking'),
         ],
       );
     } catch (error) {
@@ -148,7 +137,7 @@ class _AdminBookingPageState extends State<AdminBookingPage> {
                 onPressed: () {
                   fetchDataBooking();
                 },
-                child: Text('Refresh'),
+                child: const Text('Refresh'),
               ),
               Card(
                 child: InkWell(
