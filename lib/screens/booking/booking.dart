@@ -105,20 +105,15 @@ class _AdminBookingPageState extends State<AdminBookingPage> {
     const url = 'https://slowlab-core.herokuapp.com/booking/get-booking/';
     try {
       final response = await http.get(Uri.parse(url));
-      print(response.body);
       Map<String, dynamic> extractedData = jsonDecode(response.body);
-      extractedData.forEach((key, val) {
-        print(val);
-      });
+      extractedData.forEach((key, val) {});
       _bookingRow = Row(
         children: [
           for (var i in extractedData.values)
             Card(
               child: InkWell(
                 splashColor: Colors.blue.withAlpha(30),
-                onTap: () {
-                  print(i);
-                },
+                onTap: () {},
                 child: const SizedBox(
                   width: 300,
                   height: 100,
@@ -129,7 +124,6 @@ class _AdminBookingPageState extends State<AdminBookingPage> {
         ],
       );
     } catch (error) {
-      print(error);
       // return Row();
     }
   }
@@ -159,9 +153,7 @@ class _AdminBookingPageState extends State<AdminBookingPage> {
               Card(
                 child: InkWell(
                   splashColor: Colors.blue.withAlpha(30),
-                  onTap: () {
-                    print('Card tapped.');
-                  },
+                  onTap: () {},
                   child: const SizedBox(
                     width: 300,
                     height: 100,
