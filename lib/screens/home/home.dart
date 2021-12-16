@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:slowlabapp/widgets/drawer_navigation.dart';
 import '../auth/auth.dart';
 import '../booking/booking.dart';
 import '../cek_hasil/cek_hasil.dart';
@@ -19,6 +20,7 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: const Text("Home"),
       ),
+      drawer: DrawerNavigation(),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
