@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:slowlabapp/screens/booking/booking.dart';
+import 'package:slowlabapp/screens/cek_hasil/cek_hasil.dart';
+import 'package:slowlabapp/screens/forum/forum.dart';
+import 'package:slowlabapp/screens/lokasi_tes/lokasi_tes.dart';
+import 'package:slowlabapp/screens/product_list/product_list.dart';
 
 class DrawerNavigation extends StatefulWidget {
   const DrawerNavigation({Key? key}) : super(key: key);
@@ -25,31 +30,57 @@ class _DrawerNavigationState extends State<DrawerNavigation> {
             key: null,
             iconData: Icons.bookmarks,
             title: "Booking",
-            onTilePressed: () {},
+            onTilePressed: () {
+              Navigator.pop(context);
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const BookingPage()));
+            },
           ),
           DrawerListTile(
             key: null,
             iconData: Icons.grading,
             title: "Cek Hasil",
-            onTilePressed: () {},
+            onTilePressed: () {
+              Navigator.pop(context);
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const CekHasilPage()));
+            },
           ),
           DrawerListTile(
             key: null,
             iconData: Icons.format_list_bulleted,
             title: "Forum",
-            onTilePressed: () {},
+            onTilePressed: () {
+              Navigator.pop(context);
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const ForumPage()));
+            },
           ),
           DrawerListTile(
             key: null,
             iconData: Icons.place,
             title: "Lokasi Tes",
-            onTilePressed: () {},
+            onTilePressed: () {
+              Navigator.pop(context);
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const LokasiTesPage()));
+            },
           ),
           DrawerListTile(
             key: null,
             iconData: Icons.category,
             title: "Product List",
-            onTilePressed: () {},
+            onTilePressed: () {
+              Navigator.pop(context);
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const ProductListPage()));
+            },
           ),
         ],
       ),
