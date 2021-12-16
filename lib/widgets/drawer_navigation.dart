@@ -32,8 +32,7 @@ class _DrawerNavigationState extends State<DrawerNavigation> {
             title: "Booking",
             onTilePressed: () {
               Navigator.pop(context);
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const BookingPage()));
+              Navigator.pushNamed(context, '/booking');
             },
           ),
           DrawerListTile(
@@ -42,10 +41,7 @@ class _DrawerNavigationState extends State<DrawerNavigation> {
             title: "Cek Hasil",
             onTilePressed: () {
               Navigator.pop(context);
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const CekHasilPage()));
+              Navigator.pushNamed(context, '/cek-hasil');
             },
           ),
           DrawerListTile(
@@ -54,8 +50,7 @@ class _DrawerNavigationState extends State<DrawerNavigation> {
             title: "Forum",
             onTilePressed: () {
               Navigator.pop(context);
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const ForumPage()));
+              Navigator.pushNamed(context, '/forum');
             },
           ),
           DrawerListTile(
@@ -64,10 +59,7 @@ class _DrawerNavigationState extends State<DrawerNavigation> {
             title: "Lokasi Tes",
             onTilePressed: () {
               Navigator.pop(context);
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const LokasiTesPage()));
+              Navigator.pushNamed(context, '/lokasi-tes');
             },
           ),
           DrawerListTile(
@@ -76,10 +68,7 @@ class _DrawerNavigationState extends State<DrawerNavigation> {
             title: "Product List",
             onTilePressed: () {
               Navigator.pop(context);
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const ProductListPage()));
+              Navigator.pushNamed(context, '/product-list');
             },
           ),
         ],

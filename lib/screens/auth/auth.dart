@@ -13,6 +13,6 @@ class _AuthPageState extends State<AuthPage> {
         appBar: AppBar(
           title: const Text("Auth"),
         ),
-        body: Center(child: Text("Home Page")));
+        body: Center(child: Text("Auth Page")));
   }
 }
