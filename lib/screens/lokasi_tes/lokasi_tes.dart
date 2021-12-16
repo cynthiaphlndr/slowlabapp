@@ -10,18 +10,9 @@ class _LokasiTesPageState extends State<LokasiTesPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("LokasiTes"),
-      ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: const <Widget>[Text("LokasiTes")],
-          ),
+        appBar: AppBar(
+          title: const Text("LokasiTes"),
         ),
-      ),
-    );
+        body: Center(child: Text("Lokasi Tes Page")));
   }
 }

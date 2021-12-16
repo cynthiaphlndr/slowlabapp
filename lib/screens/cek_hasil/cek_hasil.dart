@@ -10,18 +10,9 @@ class _CekHasilPageState extends State<CekHasilPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("CekHasil"),
-      ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: const <Widget>[Text("CekHasil")],
-          ),
+        appBar: AppBar(
+          title: const Text("CekHasil"),
         ),
-      ),
-    );
+        body: Center(child: Text("Cek Hasil Page")));
   }
 }

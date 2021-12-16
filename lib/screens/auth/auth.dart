@@ -10,18 +10,9 @@ class _AuthPageState extends State<AuthPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Auth"),
-      ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: const <Widget>[Text("Auth")],
-          ),
+        appBar: AppBar(
+          title: const Text("Auth"),
         ),
-      ),
-    );
+        body: Center(child: Text("Auth Page")));
   }
 }
