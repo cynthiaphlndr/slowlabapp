@@ -10,18 +10,9 @@ class _ProductListPageState extends State<ProductListPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("ProductList"),
-      ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: const <Widget>[Text("ProductList")],
-          ),
+        appBar: AppBar(
+          title: const Text("ProductList"),
         ),
-      ),
-    );
+        body: Center(child: Text("Product List Page")));
   }
 }

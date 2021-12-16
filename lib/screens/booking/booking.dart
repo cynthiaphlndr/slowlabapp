@@ -10,18 +10,9 @@ class _BookingPageState extends State<BookingPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Booking"),
-      ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: const <Widget>[Text("Booking")],
-          ),
+        appBar: AppBar(
+          title: const Text("Booking"),
         ),
-      ),
-    );
+        body: Center(child: Text("Booking Page")));
   }
 }
