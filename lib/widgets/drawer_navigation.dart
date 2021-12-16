@@ -1,9 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:slowlabapp/screens/booking/booking.dart';
-import 'package:slowlabapp/screens/cek_hasil/cek_hasil.dart';
-import 'package:slowlabapp/screens/forum/forum.dart';
-import 'package:slowlabapp/screens/lokasi_tes/lokasi_tes.dart';
-import 'package:slowlabapp/screens/product_list/product_list.dart';
 
 class DrawerNavigation extends StatefulWidget {
   const DrawerNavigation({Key? key}) : super(key: key);
