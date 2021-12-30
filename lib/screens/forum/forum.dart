@@ -65,8 +65,7 @@ class _ForumPageState extends State<ForumPage> {
         appBar: AppBar(
           title: const Text("Forum"),
         ),
-        body:
-        ListView.builder(
+        body: ListView.builder(
           itemBuilder: (context, index) {
             return Card(
               shape: RoundedRectangleBorder(
@@ -89,7 +88,7 @@ class _ForumPageState extends State<ForumPage> {
                         ),
                         Flexible(
                           child: Container(
-                            padding: new EdgeInsets.only(right: 13.0),
+                            padding: EdgeInsets.only(right: 13.0),
                             child: Text(
                               _forums[index].pertanyaan,
                               overflow: TextOverflow.clip,
