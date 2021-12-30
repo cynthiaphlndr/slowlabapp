@@ -4,7 +4,7 @@ import 'package:slowlabapp/routes.dart';
 void main() {
   runApp(MaterialApp(
     theme: ThemeData(
-      primarySwatch: Colors.green,
+      primarySwatch: Colors.indigo,
     ),
     onGenerateRoute: RouteGenerator.generateRoute,
   ));
