@@ -13,24 +13,24 @@ class BookingPage extends StatefulWidget {
 class _BookingPageState extends State<BookingPage> {
   final String url = "https://slowlab-core.herokuapp.com/booking/get-booking/";
   List? data;
+  String? keyword;
 
+  @override
   void initState() {
     _getRefreshData();
     super.initState();
   }
 
   Future<void> _getRefreshData() async {
-    this.getJsonData(context);
+    getJsonData(context);
   }
 
   Future<void> getJsonData(BuildContext context) async {
     var response =
         await http.get(Uri.parse(url), headers: {"Accept": "aplication/json"});
 
-    print(response.body);
     setState(() {
       var convertDataToJson = jsonDecode(response.body);
-
       data = convertDataToJson;
     });
   }
@@ -38,13 +38,22 @@ class _BookingPageState extends State<BookingPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text("Booking"),
-        ),
+        appBar: AppBar(title: const Text("Booking"), actions: const []),
         body: SingleChildScrollView(
           child: Container(
               padding: EdgeInsets.all(16),
               child: Column(children: [
+                const TextField(
+                  obscureText: true,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: 'Search',
+                  ),
+                ),
+                ElevatedButton(onPressed: () {}, child: Text("Search")),
+                SizedBox(
+                  height: 24.0,
+                ),
                 data == null
                     ? Center(
                         child: CircularProgressIndicator(),
@@ -58,23 +67,18 @@ class _BookingPageState extends State<BookingPage> {
                               padding: EdgeInsets.all(5.0),
                               child: Column(
                                 children: [
-                                  Padding(
-                                      padding: EdgeInsets.all(16.0),
-                                      child: Row(
-                                        children: [
-                                          Column(children: [
-                                            Text(data![index]["fields"]
-                                                ["email"]),
-                                            Text(data![index]["fields"]
-                                                ["lokasi"]),
-                                            Text(data![index]["fields"]
-                                                ["tanggal"]),
-                                            Text(data![index]["fields"]
-                                                ["jenis"]),
-                                            // Text(data!.toString()),
-                                          ])
-                                        ],
-                                      )),
+                                  Column(
+                                    children: [
+                                      Column(children: [
+                                        Text(data![index]["fields"]
+                                            ["nama_lengkap"]),
+                                        Text(data![index]["fields"]["lokasi"]),
+                                        Text(data![index]["fields"]["tanggal"]),
+                                        Text(data![index]["fields"]["jenis"]),
+                                        // Text(data!.toString()),
+                                      ]),
+                                    ],
+                                  ),
                                   Divider()
                                 ],
                               ));
