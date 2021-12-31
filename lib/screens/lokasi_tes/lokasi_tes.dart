@@ -118,16 +118,16 @@ class _LokasiTesPageState extends State<LokasiTesPage> {
               ))));
 
   Widget kartu() => SingleChildScrollView(
-    physics: ScrollPhysics(),
-    child: Column(
-      children: <Widget>[
-    ListView.builder(
-      physics: NeverScrollableScrollPhysics(),
-      shrinkWrap: true,
-      itemCount: hasilSearch.length,
-      itemBuilder: (BuildContext context, int index) {
-        return buildCard(hasilSearch[index]);
-      })]));
+      physics: ScrollPhysics(),
+      child: Column(children: <Widget>[
+        ListView.builder(
+            physics: NeverScrollableScrollPhysics(),
+            shrinkWrap: true,
+            itemCount: hasilSearch.length,
+            itemBuilder: (BuildContext context, int index) {
+              return buildCard(hasilSearch[index]);
+            })
+      ]));
 
   Widget buildCard(data) {
     return Padding(
