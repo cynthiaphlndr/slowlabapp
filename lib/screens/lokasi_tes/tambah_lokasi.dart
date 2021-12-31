@@ -7,7 +7,7 @@ import 'package:http/http.dart' as http;
 class TambahLokasi extends StatefulWidget {
   const TambahLokasi({Key? key}) : super(key: key);
   @override
-  State<TambahLokasi>  createState() => _TambahLokasi();
+  State<TambahLokasi> createState() => _TambahLokasi();
 }
 
 class _TambahLokasi extends State<TambahLokasi> {
@@ -18,10 +18,11 @@ class _TambahLokasi extends State<TambahLokasi> {
   String nomor = '';
 
   static List<String> hourList = List<String>.generate(24, (int index) {
-    if (index < 10){
-      return '0$index.00';}
-    else{
-      return '$index.00';}
+    if (index < 10) {
+      return '0$index.00';
+    } else {
+      return '$index.00';
+    }
   });
   List<DropdownMenuItem> hourItemList = hourList
       .map((val) => DropdownMenuItem(value: val, child: Text(val)))
@@ -111,11 +112,14 @@ class _TambahLokasi extends State<TambahLokasi> {
           height: 10,
         ),
       ),
-      child: DropdownButton<dynamic>(
-        value: jamBuka,
-        onChanged: (val) => setState(() => jamBuka = (val.toString())),
-        items: hourItemList,
-      ));
+      child: Column(children: [
+        Text("Jam Buka"),
+        DropdownButton<dynamic>(
+          value: jamBuka,
+          onChanged: (val) => setState(() => jamBuka = (val.toString())),
+          items: hourItemList,
+        ),
+      ]));
 
   Widget inputJamTutup() => InputDecorator(
       decoration: InputDecoration(
@@ -124,11 +128,14 @@ class _TambahLokasi extends State<TambahLokasi> {
           height: 10,
         ),
       ),
-      child: DropdownButton<dynamic>(
-        value: jamTutup,
-        onChanged: (val) => setState(() => jamTutup = (val.toString())),
-        items: hourItemList,
-      ));
+      child: Column(children: [
+        Text("Jam Tutup"),
+        DropdownButton<dynamic>(
+          value: jamTutup,
+          onChanged: (val) => setState(() => jamTutup = (val.toString())),
+          items: hourItemList,
+        ),
+      ]));
 
   Widget inputNomor() => TextFormField(
         decoration: InputDecoration(
@@ -173,12 +180,14 @@ class _TambahLokasi extends State<TambahLokasi> {
               }));
           Map<String, dynamic> tes = jsonDecode(response.body);
           if (tes['hasil'] == 'lokasi gagal') {
-            showDialog(context: context, builder: (BuildContext context){
-            return AlertDialog(
-              title: Text("Gagal menambahkan lokasi"),
-              content: Text("Nama atau Alamat lokasi telah terdaftar"),
-            );})
-            ;
+            showDialog(
+                context: context,
+                builder: (BuildContext context) {
+                  return AlertDialog(
+                    title: Text("Gagal menambahkan lokasi"),
+                    content: Text("Nama atau Alamat lokasi telah terdaftar"),
+                  );
+                });
           } else {
             Navigator.pop(context);
           }
