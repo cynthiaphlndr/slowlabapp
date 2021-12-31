@@ -24,7 +24,7 @@ class ProductListPage extends StatefulWidget {
 }
 
 class _ProductListPageState extends State<ProductListPage> {
-  List<Products> _Product = <Products>[];
+  final List<Products> _product = <Products>[];
 
   Future<List<Products>> fetchProduct() async {
     var url = 'http://slowlab-core.herokuapp.com/product-list/json';
@@ -50,7 +50,7 @@ class _ProductListPageState extends State<ProductListPage> {
   void initState() {
     fetchProduct().then((value) {
       setState(() {
-        _Product.addAll(value);
+        _product.addAll(value);
       });
     });
     super.initState();
@@ -83,12 +83,12 @@ class _ProductListPageState extends State<ProductListPage> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
                             Text(
-                              _Product[index].fields['name'],
+                              _product[index].fields['name'],
                               style: TextStyle(
                                   fontSize: 22, fontWeight: FontWeight.bold),
                             ),
                             Text(
-                              "Rp" + _Product[index].fields['price'].toString(),
+                              "Rp" + _product[index].fields['price'].toString(),
                               style: TextStyle(color: Colors.grey.shade600),
                             ),
                             Padding(
@@ -104,7 +104,7 @@ class _ProductListPageState extends State<ProductListPage> {
                         ),
                       ));
                     },
-                    itemCount: _Product.length)
+                    itemCount: _product.length)
               ],
             )));
   }
