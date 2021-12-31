@@ -41,9 +41,10 @@ class _LokasiTesPageState extends State<LokasiTesPage> {
       appBar: AppBar(
         title: const Text("Lokasi Tes"),
       ),
-      body: Form(
-          key: formKey,
-          child: ListView(
+      body: SingleChildScrollView(
+          child: Container(
+            padding: EdgeInsets.all(16),
+            child: Column(
             children: [
               judulDisplay(),
               inputBox(),
@@ -66,7 +67,7 @@ class _LokasiTesPageState extends State<LokasiTesPage> {
                           textStyle: const TextStyle(
                             color: Colors.indigo,
                           )))),
-            ],
+            ]),
           )),
     );
   }
@@ -90,13 +91,6 @@ class _LokasiTesPageState extends State<LokasiTesPage> {
             contentPadding:
                 EdgeInsets.symmetric(vertical: 25.0, horizontal: 10.0),
           ),
-          validator: (value) {
-            if (value!.isEmpty) {
-              return 'Enter anything';
-            } else {
-              return null;
-            }
-          },
           controller: _lokasiController,
           maxLength: 30,
         ),
@@ -117,17 +111,19 @@ class _LokasiTesPageState extends State<LokasiTesPage> {
                 color: Colors.white,
               ))));
 
-  Widget kartu() => SingleChildScrollView(
-      physics: ScrollPhysics(),
-      child: Column(children: <Widget>[
+  Widget kartu() => 
+  // SingleChildScrollView(
+  //     physics: ScrollPhysics(),
+  //     child: Column(children: <Widget>[
         ListView.builder(
             physics: NeverScrollableScrollPhysics(),
             shrinkWrap: true,
             itemCount: hasilSearch.length,
             itemBuilder: (BuildContext context, int index) {
               return buildCard(hasilSearch[index]);
-            })
-      ]));
+            });
+      // ]
+      // ));
 
   Widget buildCard(data) {
     return Padding(
