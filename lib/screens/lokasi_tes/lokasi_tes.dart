@@ -117,12 +117,17 @@ class _LokasiTesPageState extends State<LokasiTesPage> {
                 color: Colors.white,
               ))));
 
-  Widget kartu() => ListView.builder(
+  Widget kartu() => SingleChildScrollView(
+    physics: ScrollPhysics(),
+    child: Column(
+      children: <Widget>[
+    ListView.builder(
+      physics: NeverScrollableScrollPhysics(),
       shrinkWrap: true,
       itemCount: hasilSearch.length,
       itemBuilder: (BuildContext context, int index) {
         return buildCard(hasilSearch[index]);
-      });
+      })]));
 
   Widget buildCard(data) {
     return Padding(
