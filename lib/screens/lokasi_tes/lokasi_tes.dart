@@ -83,7 +83,6 @@ class _LokasiTesPageState extends State<LokasiTesPage> {
 
   Widget inputBox() => Container(
         alignment: Alignment.center,
-        padding: const EdgeInsets.fromLTRB(100, 10, 150, 10),
         child: TextFormField(
           decoration: InputDecoration(
             labelText: 'Masukkan Provinsi Lokasi',
