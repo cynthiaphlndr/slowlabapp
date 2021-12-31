@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
+import 'package:slowlabapp/screens/auth/login.dart';
+import 'package:slowlabapp/screens/auth/profile.dart';
+import 'package:slowlabapp/screens/auth/profile_edit.dart';
 import 'package:slowlabapp/screens/booking/booking.dart';
 import 'package:slowlabapp/screens/cek_hasil/cek_hasil.dart';
 import 'package:slowlabapp/screens/forum/forum.dart';
@@ -41,6 +44,12 @@ class RouteGenerator {
                     ),
                   ),
                 ));
+      case '/login':
+        return MaterialPageRoute(builder: (_) => LoginPage());
+      case '/profile':
+        return MaterialPageRoute(builder: (_) => ProfilePage());
+      case '/edit_profile':
+        return MaterialPageRoute(builder: (_) => ProfileEditPage());
       default:
         return _errorRoute();
     }

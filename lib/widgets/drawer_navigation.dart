@@ -1,4 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:provider/src/provider.dart';
+import 'package:slowlabapp/CookieRequest.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+
+String login_check(request) {
+  if (request.loggedIn) {
+    return "Profile";
+  } else {
+    return "Login";
+  }
+}
+
+Future<List> getuname(String uname) async {
+  String url = "https://slowlab-core.herokuapp.com/auth/flutter/get_province";
+  var response = await http.get(Uri.parse(url));
+
+  List provinceLst;
+  provinceLst = json.decode(response.body)['allprovince'].toList();
+
+  return provinceLst;
+}
+
 
 class DrawerNavigation extends StatefulWidget {
   const DrawerNavigation({Key? key}) : super(key: key);
@@ -10,6 +33,7 @@ class DrawerNavigation extends StatefulWidget {
 class _DrawerNavigationState extends State<DrawerNavigation> {
   @override
   Widget build(BuildContext context) {
+    final request = context.watch<CookieRequest>();
     return Drawer(
       child: ListView(
         children: [
@@ -20,6 +44,19 @@ class _DrawerNavigationState extends State<DrawerNavigation> {
                   "https://pbs.twimg.com/profile_images/1451093046976651266/lTGfergv_400x400.jpg"),
             ),
             accountEmail: Text("ariq.syahalam@gmail.com"),
+          ),
+          DrawerListTile(
+            key: null,
+            iconData: Icons.person,
+            title: login_check(request),
+            onTilePressed: () {
+              Navigator.pop(context);
+              if (request.loggedIn) {
+                Navigator.pushNamed(context, '/profile');
+              } else {
+                Navigator.pushNamed(context, '/login');
+              }
+            },
           ),
           DrawerListTile(
             key: null,
