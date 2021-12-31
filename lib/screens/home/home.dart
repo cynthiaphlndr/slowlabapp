@@ -114,7 +114,6 @@ class _HomePageState extends State<HomePage> {
                     child: InkWell(
                       splashColor: Colors.blue.withAlpha(30),
                       onTap: () {
-                        Navigator.pop(context);
                         Navigator.pushNamed(context, '/product-list');
                       },
                       child: Container(
@@ -161,7 +160,6 @@ class _HomePageState extends State<HomePage> {
                     child: InkWell(
                       splashColor: Colors.blue.withAlpha(30),
                       onTap: () {
-                        Navigator.pop(context);
                         Navigator.pushNamed(context, '/lokasi-tes');
                       },
                       child: Container(
@@ -213,7 +211,6 @@ class _HomePageState extends State<HomePage> {
                     child: InkWell(
                       splashColor: Colors.blue.withAlpha(30),
                       onTap: () {
-                        Navigator.pop(context);
                         Navigator.pushNamed(context, '/forum');
                       },
                       child: Container(
@@ -260,7 +257,6 @@ class _HomePageState extends State<HomePage> {
                     child: InkWell(
                       splashColor: Colors.blue.withAlpha(30),
                       onTap: () {
-                        Navigator.pop(context);
                         Navigator.pushNamed(context, '/cek-hasil');
                       },
                       child: Container(
