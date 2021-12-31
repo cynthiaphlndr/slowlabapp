@@ -79,10 +79,10 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   late Future<List<Provinsi>> futureProvinsi;
   Provinsi? _selected;
-  String txt_T = 'jumlah';
-  String txt_A = 'jumlah';
-  String txt_S = 'jumlah';
-  String txt_M = 'jumlah';
+  String txtT = 'jumlah';
+  String txtA = 'jumlah';
+  String txtS = 'jumlah';
+  String txtM = 'jumlah';
 
   @override
   void initState() {
@@ -326,8 +326,6 @@ class _HomePageState extends State<HomePage> {
                             ),
                           ),
                         ),
-                        // TODO: Diganti filter/search dropdown
-                        // TODO: Basically semua yang kaya di django monkaS
                         Expanded(
                           child: FutureBuilder<List<Provinsi>>(
                             future: futureProvinsi,
@@ -351,10 +349,10 @@ class _HomePageState extends State<HomePage> {
                                     onChanged: (newValue) {
                                       setState(() {
                                         _selected = newValue as Provinsi;
-                                        txt_T = newValue.totalKasus;
-                                        txt_A = newValue.kasusAktif;
-                                        txt_S = newValue.sembuh;
-                                        txt_M = newValue.meninggal;
+                                        txtT = newValue.totalKasus;
+                                        txtA = newValue.kasusAktif;
+                                        txtS = newValue.sembuh;
+                                        txtM = newValue.meninggal;
                                       });
                                     },
                                     items: snapshot.data
@@ -415,7 +413,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                         Expanded(
                           child: Text(
-                            txt_T,
+                            txtT,
                             style: TextStyle(
                               fontSize: 10,
                             ),
@@ -448,7 +446,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                         Expanded(
                           child: Text(
-                            txt_A,
+                            txtA,
                             style: TextStyle(
                               fontSize: 10,
                             ),
@@ -486,7 +484,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                         Expanded(
                           child: Text(
-                            txt_S,
+                            txtS,
                             style: TextStyle(
                               fontSize: 10,
                             ),
@@ -519,7 +517,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                         Expanded(
                           child: Text(
-                            txt_M,
+                            txtM,
                             style: TextStyle(
                               fontSize: 10,
                             ),

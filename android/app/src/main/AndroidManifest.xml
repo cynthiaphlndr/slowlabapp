@@ -1,6 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.slowlabapp"
-    >
+    package="com.example.slowlabapp">
    <application
         android:label="slowlabapp"
         android:icon="@mipmap/ic_launcher">
