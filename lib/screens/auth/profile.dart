@@ -1,3 +1,5 @@
+// ignore_for_file: unused_import, implementation_imports, unused_local_variable
+
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:provider/src/provider.dart';
@@ -13,11 +15,11 @@ import 'login.dart';
 import 'profile_edit.dart';
 
 class ProfileData {
-  late final String fullname;
-  late final String bod;
-  late final String phone;
-  late final String province;
-  late final String address;
+  final String fullname;
+  final String bod;
+  final String phone;
+  final String province;
+  final String address;
 
   ProfileData({
     required this.fullname,
@@ -34,22 +36,22 @@ class ProfileData {
     String provinsi = "Aceh";
     String alamat = "none";
 
-    if (json["fullname"] != null){
+    if (json["fullname"] != null) {
       nama = json["fullname"];
     }
-    if (json["bod"] != null){
+    if (json["bod"] != null) {
       tgllhr = json["bod"];
     }
-    if (json["phone"] != null){
+    if (json["phone"] != null) {
       notlp = json["phone"];
     }
-    if (json["province"] != null){
+    if (json["province"] != null) {
       provinsi = json["province"];
     }
-    if (json["address"] != null){
+    if (json["address"] != null) {
       alamat = json["address"];
     }
-    
+
     return ProfileData(
       fullname: nama,
       bod: tgllhr,
@@ -69,14 +71,17 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage> {
   final _formKey = GlobalKey<FormState>();
 
-  late ProfileData profileData;
+  ProfileData profileData =
+      ProfileData(fullname: "", bod: "", phone: "", province: "", address: "");
 
   @override
   void initState() {
     super.initState();
     WidgetsBinding.instance!.addPostFrameCallback((timeStamp) {
       final request = Provider.of<CookieRequest>(context, listen: false);
-      request.get('https://slowlab-core.herokuapp.com/auth/flutter/profile').then((value) {
+      request
+          .get('https://slowlab-core.herokuapp.com/auth/flutter/profile')
+          .then((value) {
         super.setState(() {
           profileData = ProfileData.fromJson(value);
         });

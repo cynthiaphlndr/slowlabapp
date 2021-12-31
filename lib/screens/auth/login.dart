@@ -1,9 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
 import 'package:slowlabapp/CookieRequest.dart';
-import 'dart:convert';
 
 import 'package:slowlabapp/screens/auth/register.dart';
 import 'package:slowlabapp/screens/home/home.dart';
@@ -48,7 +46,6 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     final request = context.watch<CookieRequest>();
-    Size size = MediaQuery.of(context).size;
     return Scaffold(
         body: Center(
             child: SingleChildScrollView(
@@ -186,11 +183,11 @@ class _LoginPageState extends State<LoginPage> {
                                           if (_formKey.currentState!
                                               .validate()) {
                                             // 'username' and 'password' should be the values of the user login form.
-                                            final response = await request.login(
+                                            await request.login(
                                                 "https://slowlab-core.herokuapp.com/auth/flutter/login",
                                                 {
-                                                  'username': username,
-                                                  'password': password,
+                                                  "username": username,
+                                                  "password": password,
                                                 });
                                             if (request.loggedIn) {
                                               Navigator.push(

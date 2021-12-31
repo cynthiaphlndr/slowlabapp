@@ -1,3 +1,5 @@
+// ignore_for_file: implementation_imports, unused_import
+
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:provider/src/provider.dart';
@@ -96,14 +98,17 @@ class ProfileEditPage extends StatefulWidget {
 class _ProfileEditPageState extends State<ProfileEditPage> {
   final _formKey = GlobalKey<FormState>();
 
-  late ProfileData profileData;
+  ProfileData profileData =
+      ProfileData(fullname: "", bod: "", phone: "", province: "", address: "");
 
   @override
   void initState() {
     super.initState();
     WidgetsBinding.instance!.addPostFrameCallback((timeStamp) {
       final request = Provider.of<CookieRequest>(context, listen: false);
-      request.get('https://slowlab-core.herokuapp.com/auth/flutter/profile').then((value) {
+      request
+          .get('https://slowlab-core.herokuapp.com/auth/flutter/profile')
+          .then((value) {
         super.setState(() {
           profileData = ProfileData.fromJson(value);
         });
@@ -113,8 +118,6 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
 
   @override
   Widget build(BuildContext context) {
-    final request = context.watch<CookieRequest>();
-    Size size = MediaQuery.of(context).size;
     String dropdownValue = "Aceh";
     String fullname = "";
     String bod = "";
